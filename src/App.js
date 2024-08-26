@@ -35,7 +35,7 @@ const App = () => {
 		fetchData();
 	}, []);
 	const QSOL = 311.57;
-	const TSOL = 446;
+	const TSOL = 457;
 	const total = parseInt((QSOL + TSOL) * data);
 	const vndCurrency = 24000;
 	return (
@@ -45,10 +45,10 @@ const App = () => {
 					<p>Giá SOL: {data}</p>
                     <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
 					<p>
-						Quâỵ có {QSOL} SOL tương đương: {parseInt(QSOL * data)}$
+						Quâỵ có {QSOL} SOL tương đương: {parseInt(QSOL * data)}$ tương đương <strong>{convertToVNDCurrency(QSOL * data * vndCurrency)}</strong>
 					</p>
 					<p>
-						Tiêu có {TSOL} SOL tương đương: {parseInt(TSOL * data)}$
+						Tiêu có {TSOL} SOL tương đương: {parseInt(TSOL * data)}$ tương đương <strong>{convertToVNDCurrency(TSOL * data * vndCurrency)}</strong>
 					</p>
 					<p>
 						Tổng 2 thằng có: {(QSOL + TSOL).toFixed(2)} SOL tương đương: <strong>{convertToUSDCurrency(total)}</strong> tương đương <strong>{convertToVNDCurrency(total * vndCurrency)}</strong>
