@@ -35,7 +35,7 @@ const App = () => {
 		fetchData();
 	}, []);
 	const QSOL = 311.57;
-	const TSOL = 457;
+	const TSOL = 472;
 	const total = parseInt((QSOL + TSOL) * data);
 	const vndCurrency = 24000;
 	return (
