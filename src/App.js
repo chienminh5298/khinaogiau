@@ -56,10 +56,10 @@ const App = () => {
                         Tổng 2 thằng có: {(QSOL + TSOL).toFixed(2)} SOL tương đương: <strong>{convertToUSDCurrency(total)}</strong> tương đương <strong>{convertToVNDCurrency(total * vndCurrency)}</strong>
                     </p>
                     <p>
-                        Dì 3 có {di3SOL} SOL tương đương: {parseInt(QSOL * data)}$ tương đương <strong>{convertToVNDCurrency(QSOL * data * vndCurrency)}</strong>
+                        Dì 3 có {di3SOL} SOL tương đương: {parseInt(QSOL * data)}$ tương đương <strong>{convertToVNDCurrency(di3SOL * data * vndCurrency)}</strong>
                     </p>
                     <p>
-                        Châu có {chauSOL} SOL tương đương: {parseInt(TSOL * data)}$ tương đương <strong>{convertToVNDCurrency(TSOL * data * vndCurrency)}</strong>
+                        Châu có {chauSOL} SOL tương đương: {parseInt(TSOL * data)}$ tương đương <strong>{convertToVNDCurrency(chauSOL * data * vndCurrency)}</strong>
                     </p>
                 </div>
             ) : (
