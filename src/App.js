@@ -37,7 +37,7 @@ const App = () => {
     const QSOL = 268.3;
     const TSOL = 500;
     const di3SOL = 130.86;
-    const chauSOL = 82.023;
+    const chauSOL = 90.97;
     const total = parseInt((QSOL + TSOL) * data);
     const vndCurrency = 24000;
     return (
