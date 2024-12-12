@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
 
 const App = () => {
     const [data, setData] = useState(null);
+
+    // Socket fetch price //
+
     function convertToVNDCurrency(number) {
         const formatter = new Intl.NumberFormat("vi-VN", {
             style: "currency",
@@ -23,17 +25,30 @@ const App = () => {
         return formatter.format(number);
     }
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`https://adminmoneymachine.minhnguyen.website:1234/landing/token/price/SOLUSDT`);
-                setData(response.data.data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
+        const symbol = "SOL";
+        const stable = "USDT";
+        var webSocketString = "wss://fstream.binance.com/stream?streams=";
+        webSocketString += `${symbol.toLocaleLowerCase() + stable.toLocaleLowerCase()}@bookTicker/`;
+        webSocketString = webSocketString.slice(0, -1);
+        const priceSocket = new WebSocket(webSocketString);
+        priceSocket.onopen = () => {};
+
+        let lastUpdateTime = 0; // Store the timestamp of the last update
+        priceSocket.onmessage = (msg) => {
+            const currentPrice = JSON.parse(msg.data).data.b;
+            const now = Date.now();
+
+            // Update the state only if 3 seconds have passed
+            if (now - lastUpdateTime >= 3000) {
+                setData(currentPrice);
+                lastUpdateTime = now;
             }
         };
-
-        fetchData();
+        return () => {
+            priceSocket.close();
+        };
     }, []);
+
     const QSOL = 268.3;
     const TSOL = 500;
     const di3SOL = 130.86;
