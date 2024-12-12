@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 
@@ -126,7 +126,7 @@ const App = () => {
                     <ul>
                         <li>
                             <p>
-                                Dì 3 có {TSOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
+                                Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
                                 <strong>
                                     {sign}
                                     {convertToUSDCurrency((currentPrice - openPrice) * di3SOL)}
@@ -140,7 +140,7 @@ const App = () => {
                         </li>
                         <li>
                             <p>
-                                Châu có {TSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
+                                Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
                                 <strong>
                                     {sign}
                                     {convertToUSDCurrency((currentPrice - openPrice) * chauSOL)}
