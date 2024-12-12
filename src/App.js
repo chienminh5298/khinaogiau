@@ -84,7 +84,7 @@ const App = () => {
                     <ul>
                         <li>
                             <p>
-                                Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
+                                Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
                                 <strong>
                                     {sign}
                                     {convertToUSDCurrency((currentPrice - openPrice) * QSOL)}
