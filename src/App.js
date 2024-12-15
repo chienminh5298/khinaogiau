@@ -68,9 +68,9 @@ const App = () => {
         };
     }, []);
 
-    const QSOL = 268.3;
+    const QSOL = 270.93;
     const TSOL = 500;
-    const di3SOL = 130.86;
+    const di3SOL = 135.16;
     const chauSOL = 90.97;
     const total = parseInt((QSOL + TSOL) * currentPrice);
     const vndCurrency = 24000;
