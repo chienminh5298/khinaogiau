@@ -71,7 +71,7 @@ const App = () => {
     const QSOL = 270.93;
     const TSOL = 500;
     const di3SOL = 135.16;
-    const chauSOL = 90.97;
+    const chauSOL = 107.71;
     const total = parseInt((QSOL + TSOL) * currentPrice);
     const vndCurrency = 24000;
     const sign = currentPrice - openPrice > 0 ? "+" : "-";
