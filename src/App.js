@@ -70,7 +70,7 @@ const App = () => {
 
     const QSOL = 269.6;
     const TSOL = 500;
-    const di3SOL = 142.43;
+    const di3SOL = 132.43;
     const chauSOL = 125.79;
     const total = parseInt((QSOL + TSOL) * currentPrice);
     const vndCurrency = 24000;
