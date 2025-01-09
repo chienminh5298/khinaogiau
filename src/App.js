@@ -72,7 +72,7 @@ const App = () => {
     const TSOL = 500;
     const di3SOL = 100;
     const chauSOL = 125.79;
-    const total = parseInt((QSOL + TSOL) * currentPrice);
+
     const vndCurrency = 24000;
     const sign = currentPrice - openPrice > 0 ? "+" : "-";
     return (
@@ -82,6 +82,7 @@ const App = () => {
                     <p>Giá SOL: {currentPrice}</p>
                     <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                     <ul>
+                        <li>---------------------------------------------------------------</li>
                         <li>
                             <p>
                                 Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
@@ -96,6 +97,7 @@ const App = () => {
                                 </strong>
                             </p>
                         </li>
+                        <li>---------------------------------------------------------------</li>
                         <li>
                             <p>
                                 Tiêu có {TSOL} SOL tương đương: <strong>{parseInt(TSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(TSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
@@ -110,20 +112,7 @@ const App = () => {
                                 </strong>
                             </p>
                         </li>
-                    </ul>
-
-                    <p>
-                        Tổng 2 thằng có: {(QSOL + TSOL).toFixed(2)} SOL tương đương: <strong>{convertToUSDCurrency(total)}</strong> tương đương <strong>{convertToVNDCurrency(total * vndCurrency)}</strong>, hôm nay{" "}
-                        <strong>
-                            {sign} {convertToUSDCurrency((currentPrice - openPrice) * (QSOL + TSOL))}
-                        </strong>
-                        {" tương đương "}
-                        <strong>
-                            {sign}
-                            {convertToVNDCurrency((currentPrice - openPrice) * (QSOL + TSOL) * vndCurrency)}
-                        </strong>
-                    </p>
-                    <ul>
+                        <li>---------------------------------------------------------------</li>
                         <li>
                             <p>
                                 Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
@@ -138,6 +127,7 @@ const App = () => {
                                 </strong>
                             </p>
                         </li>
+                        <li>---------------------------------------------------------------</li>
                         <li>
                             <p>
                                 Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
