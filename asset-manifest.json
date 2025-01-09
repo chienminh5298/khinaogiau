@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/khinaogiau/static/css/main.6bb72586.css",
-    "main.js": "/khinaogiau/static/js/main.dd147e00.js",
+    "main.js": "/khinaogiau/static/js/main.f82b879c.js",
     "static/js/511.024e524b.chunk.js": "/khinaogiau/static/js/511.024e524b.chunk.js",
     "index.html": "/khinaogiau/index.html",
     "main.6bb72586.css.map": "/khinaogiau/static/css/main.6bb72586.css.map",
-    "main.dd147e00.js.map": "/khinaogiau/static/js/main.dd147e00.js.map",
+    "main.f82b879c.js.map": "/khinaogiau/static/js/main.f82b879c.js.map",
     "511.024e524b.chunk.js.map": "/khinaogiau/static/js/511.024e524b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6bb72586.css",
-    "static/js/main.dd147e00.js"
+    "static/js/main.f82b879c.js"
   ]
 }
