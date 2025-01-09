@@ -88,7 +88,7 @@ const App = () => {
     const TXRP = 0;
     const di3SOL = 100;
     const chauSOL = 125.79;
-
+    const chauXRP = 1613;
     const vndCurrency = 24500;
     return (
         <div className="container">
@@ -137,6 +137,13 @@ const App = () => {
                             Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Châu có {chauXRP} XRP tương đương: <strong>{parseInt(chauXRP * currentPrice.XRP)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauXRP * currentPrice.XRP * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * chauXRP)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * chauXRP * vndCurrency)}</strong>
                         </p>
                     </li>
                 </ul>
