@@ -22,8 +22,8 @@ function convertToUSDCurrency(number) {
     return formatter.format(number);
 }
 
-const getOpenPrice = async () => {
-    const data = await axios.get(`https://api.binance.us/api/v3/klines?symbol=SOLUSDT&interval=1d&limit=1`);
+const getOpenPrice = async (symbol) => {
+    const data = await axios.get(`https://api.binance.us/api/v3/klines?symbol=${symbol}USDT&interval=1d&limit=1`);
     if (data.status === 200) {
         return parseFloat(data.data[0][1]);
     } else {
@@ -32,121 +32,115 @@ const getOpenPrice = async () => {
 };
 
 const App = () => {
-    const [currentPrice, setCurrentPrice] = useState(null);
-    const [openPrice, setOpenPrice] = useState(0);
+    const [currentPrice, setCurrentPrice] = useState({
+        XRP: 0,
+        SOL: 0,
+    });
+    const [openPrice, setOpenPrice] = useState({
+        XRP: 0,
+        SOL: 0,
+    });
 
     useEffect(() => {
-        const symbol = "SOL";
+        const symbol = ["SOL", "XRP"];
         const stable = "USDT";
-
+        const socketPrice = [];
         // Price socket
-        var webSocketString = "wss://fstream.binance.com/stream?streams=";
-        webSocketString += `${symbol.toLocaleLowerCase() + stable.toLocaleLowerCase()}@bookTicker/`;
-        webSocketString = webSocketString.slice(0, -1);
-        const priceSocket = new WebSocket(webSocketString);
-        priceSocket.onopen = () => {};
+        symbol.forEach((s) => {
+            let webSocketString = "wss://fstream.binance.com/stream?streams=";
+            webSocketString += `${s.toLocaleLowerCase() + stable.toLocaleLowerCase()}@bookTicker/`;
+            webSocketString = webSocketString.slice(0, -1);
+            const priceSocket = new WebSocket(webSocketString);
+            priceSocket.onopen = () => {};
 
-        let lastUpdateTime = 0; // Store the timestamp of the last update
-        priceSocket.onmessage = (msg) => {
-            const data = JSON.parse(msg.data).data.b;
-            const now = Date.now();
+            let lastUpdateTime = 0; // Store the timestamp of the last update
+            priceSocket.onmessage = (msg) => {
+                const data = JSON.parse(msg.data).data.b;
+                const now = Date.now();
 
-            // Update the state only if 3 seconds have passed
-            if (now - lastUpdateTime >= 3000) {
-                setCurrentPrice(data);
-                lastUpdateTime = now;
-            }
-        };
+                // Update the state only if 3 seconds have passed
+                if (now - lastUpdateTime >= 3000) {
+                    setCurrentPrice((prevState) => ({
+                        ...prevState,
+                        [s]: data,
+                    }));
+                    lastUpdateTime = now;
+                }
+            };
+            socketPrice.push(priceSocket);
 
-        // Candlestick price
-        getOpenPrice().then((price) => {
-            setOpenPrice(price);
+            // Candlestick price
+            getOpenPrice(s).then((price) => {
+                setOpenPrice((prevState) => ({
+                    ...prevState,
+                    [s]: price,
+                }));
+            });
         });
 
         return () => {
-            priceSocket.close();
+            socketPrice.forEach((soc) => soc.close());
         };
     }, []);
 
     const QSOL = 269.6;
     const TSOL = 500;
+    const TXRP = 0;
     const di3SOL = 100;
     const chauSOL = 125.79;
 
-    const vndCurrency = 24000;
-    const sign = currentPrice - openPrice > 0 ? "+" : "-";
+    const vndCurrency = 24500;
     return (
         <div className="container">
-            {currentPrice ? (
-                <div>
-                    <p>Giá SOL: {currentPrice}</p>
-                    <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
-                    <ul>
-                        <li>---------------------------------------------------------------</li>
-                        <li>
-                            <p>
-                                Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
-                                <strong>
-                                    {sign}
-                                    {convertToUSDCurrency((currentPrice - openPrice) * QSOL)}
-                                </strong>
-                                {" tương đương "}
-                                <strong>
-                                    {sign}
-                                    {convertToVNDCurrency((currentPrice - openPrice) * QSOL * vndCurrency)}
-                                </strong>
-                            </p>
-                        </li>
-                        <li>---------------------------------------------------------------</li>
-                        <li>
-                            <p>
-                                Tiêu có {TSOL} SOL tương đương: <strong>{parseInt(TSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(TSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
-                                <strong>
-                                    {sign}
-                                    {convertToUSDCurrency((currentPrice - openPrice) * TSOL)}
-                                </strong>
-                                {" tương đương "}
-                                <strong>
-                                    {sign}
-                                    {convertToVNDCurrency((currentPrice - openPrice) * TSOL * vndCurrency)}
-                                </strong>
-                            </p>
-                        </li>
-                        <li>---------------------------------------------------------------</li>
-                        <li>
-                            <p>
-                                Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
-                                <strong>
-                                    {sign}
-                                    {convertToUSDCurrency((currentPrice - openPrice) * di3SOL)}
-                                </strong>
-                                {" tương đương "}
-                                <strong>
-                                    {sign}
-                                    {convertToVNDCurrency((currentPrice - openPrice) * di3SOL * vndCurrency)}
-                                </strong>
-                            </p>
-                        </li>
-                        <li>---------------------------------------------------------------</li>
-                        <li>
-                            <p>
-                                Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice * vndCurrency)}</strong>, hôm nay{" "}
-                                <strong>
-                                    {sign}
-                                    {convertToUSDCurrency((currentPrice - openPrice) * chauSOL)}
-                                </strong>
-                                {" tương đương "}
-                                <strong>
-                                    {sign}
-                                    {convertToVNDCurrency((currentPrice - openPrice) * chauSOL * vndCurrency)}
-                                </strong>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            ) : (
-                <p>Loading data...</p>
-            )}
+            <div>
+                <p>SOL: {currentPrice.SOL}</p>
+                <p>XRP: {currentPrice.XRP}</p>
+                <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
+                <ul>
+                    <li>---------------------------------------------------------------</li>
+                    <li>
+                        <p>
+                            Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice.SOL)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * QSOL)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * QSOL * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>---------------------------------------------------------------</li>
+                    <li>
+                        <p>
+                            Tiêu có {TSOL} SOL tương đương: <strong>{parseInt(TSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(TSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * TSOL)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * TSOL * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Tiêu có {TXRP} XRP tương đương: <strong>{parseInt(TXRP * currentPrice.XRP)}</strong>$ tương đương <strong>{convertToVNDCurrency(TXRP * currentPrice.XRP * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * TXRP)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * TXRP * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        Tổng {parseInt(TXRP * currentPrice.XRP + TSOL * currentPrice.SOL)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL) * vndCurrency)}
+                    </li>
+                    <li>---------------------------------------------------------------</li>
+                    <li>
+                        <p>
+                            Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * di3SOL)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * di3SOL * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>---------------------------------------------------------------</li>
+                    <li>
+                        <p>
+                            Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 };
