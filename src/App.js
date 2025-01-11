@@ -84,8 +84,8 @@ const App = () => {
     }, []);
 
     const QSOL = 269.6;
-    const TSOL = 500;
-    const TXRP = 0;
+    const TSOL = 397.108;
+    const TXRP = 8262;
     const di3SOL = 100;
     const chauSOL = 125.79;
     const chauXRP = 1613;
