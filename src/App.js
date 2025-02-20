@@ -86,7 +86,7 @@ const App = () => {
     const QSOL = 269.6;
     const TSOL = 318.125;
     const TXRP = 13528;
-    const XRPdautu = 5654;
+    const XRPdautu = 6021;
     const di3SOL = 105.13;
     const chauSOL = 125.79;
     const chauXRP = 1613;
@@ -126,7 +126,7 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            {XRPdautu} XRP về việt nam: <strong>{parseInt(XRPdautu * currentPrice.XRP) - 15920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu)}</strong>
+                            {XRPdautu} XRP về việt nam: <strong>{parseInt(XRPdautu * currentPrice.XRP) - 16920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu * vndCurrency)}</strong>
                         </p>
