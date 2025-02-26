@@ -88,7 +88,7 @@ const App = () => {
     const TXRP = 13528;
     const XRPdautu = 6884;
     const di3SOL = 105.13;
-    const chauSOL = 125.79;
+    const chauSOL = 132.01;
     const chauXRP = 1613;
     const vndCurrency = 24500;
     return (
