@@ -127,7 +127,7 @@ const App = () => {
                         <p>
                             {XRPdautu} XRP về việt nam: <strong>{parseInt(XRPdautu * currentPrice.XRP) - 21920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu * vndCurrency)} ~ {currentPrice.XRP - 2.629}%</strong>
                         </p>
                     </li>
                     <li>---------------------------------------------------------------</li>
