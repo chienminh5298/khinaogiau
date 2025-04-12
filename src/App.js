@@ -83,10 +83,10 @@ const App = () => {
         };
     }, []);
 
-    const QSOL = 264.568;
+    const QSOL = 78.36;
     const TSOL = 466.499;
-    const TXRP = 0;
-    const XRPdautu = 8289;
+    const TXRP = 711;
+    const XRPdautu = 7178;
     const di3SOL = 105.13;
     const chauSOL = 135.04;
     const vndCurrency = 24500;
