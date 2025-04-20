@@ -121,7 +121,7 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt(TXRP * currentPrice.XRP + TSOL * currentPrice.SOL)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL) * vndCurrency)}
+                        Tổng {parseInt((TXRP + XRPdautu) * currentPrice.XRP + TSOL * currentPrice.SOL)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL) * vndCurrency)}
                     </li>
                     <li>
                         <p>
