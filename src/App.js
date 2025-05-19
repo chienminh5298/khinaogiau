@@ -35,10 +35,12 @@ const App = () => {
     const [currentPrice, setCurrentPrice] = useState({
         XRP: 0,
         SOL: 0,
+        WIF: 0,
     });
     const [openPrice, setOpenPrice] = useState({
         XRP: 0,
         SOL: 0,
+        WIF: 0,
     });
 
     useEffect(() => {
@@ -86,7 +88,7 @@ const App = () => {
     const QSOL = 226.24;
     const TSOL = 466.499;
     const TXRP = 5882;
-    const XRPdautu = 7178;
+    const WIFdautu = 17313;
     const di3SOL = 105.13;
     const chauSOL = 85.04;
     const vndCurrency = 24500;
@@ -121,14 +123,14 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt((TXRP + XRPdautu) * currentPrice.XRP + TSOL * currentPrice.SOL)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL) * vndCurrency)}
+                        Tổng {parseInt(TXRP * currentPrice.XRP + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF) * vndCurrency)}
                     </li>
                     <li>
                         <p>
-                            {XRPdautu} XRP về việt nam: <strong>{parseInt(XRPdautu * currentPrice.XRP) - 21920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu)}</strong>
+                            {WIFdautu} WIF về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) - 21920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * XRPdautu * vndCurrency)} ~ {(currentPrice.XRP * 100) / 2.629 - 100}%
+                                {convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu * vndCurrency)} ~ {(currentPrice.WIF * 100) / 2.629 - 100}%
                             </strong>
                         </p>
                     </li>
