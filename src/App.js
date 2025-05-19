@@ -44,7 +44,7 @@ const App = () => {
     });
 
     useEffect(() => {
-        const symbol = ["SOL", "XRP"];
+        const symbol = ["SOL", "XRP", "WIF"];
         const stable = "USDT";
         const socketPrice = [];
         // Price socket
@@ -97,6 +97,7 @@ const App = () => {
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
                 <p>XRP: {currentPrice.XRP}</p>
+                <p>WIF: {currentPrice.WIF}</p>
                 <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                 <ul>
                     <li>---------------------------------------------------------------</li>
