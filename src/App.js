@@ -90,7 +90,7 @@ const App = () => {
     const TWIF = 13120;
     const WIFdautu = 17313;
     const di3SOL = 105.13;
-    const chauSOL = 85.04;
+    const chauSOL = 125.04;
     const vndCurrency = 24500;
     return (
         <div className="container">
