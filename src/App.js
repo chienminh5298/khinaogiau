@@ -87,7 +87,7 @@ const App = () => {
 
     const QSOL = 226.24;
     const TSOL = 466.499;
-    const TXRP = 5882;
+    const TWIF = 13120;
     const WIFdautu = 17313;
     const di3SOL = 105.13;
     const chauSOL = 85.04;
@@ -96,7 +96,6 @@ const App = () => {
         <div className="container">
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
-                <p>XRP: {currentPrice.XRP}</p>
                 <p>WIF: {currentPrice.WIF}</p>
                 <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                 <ul>
@@ -118,13 +117,10 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TXRP} XRP tương đương: <strong>{parseInt(TXRP * currentPrice.XRP)}</strong>$ tương đương <strong>{convertToVNDCurrency(TXRP * currentPrice.XRP * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.XRP - openPrice.XRP) * TXRP)}</strong>
+                            Tiêu có {TWIF} WIF tương đương: <strong>{parseInt(TWIF * currentPrice.WIF)}</strong>$ tương đương <strong>{convertToVNDCurrency(TWIF * currentPrice.WIF * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.XRP - openPrice.XRP) * TXRP * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF * vndCurrency)}</strong>
                         </p>
-                    </li>
-                    <li>
-                        Tổng {parseInt(TXRP * currentPrice.XRP + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF)} ~ {convertToVNDCurrency((TXRP * currentPrice.XRP + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF) * vndCurrency)}
                     </li>
                     <li>
                         <p>
@@ -134,6 +130,9 @@ const App = () => {
                                 {convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) - 21920) * 100) / 21920}%
                             </strong>
                         </p>
+                    </li>
+                    <li>
+                        Tổng {parseInt(TWIF * currentPrice.WIF + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF)} ~ {convertToVNDCurrency((TWIF * currentPrice.WIF + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
