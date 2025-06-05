@@ -88,7 +88,7 @@ const App = () => {
     const QSOL = 12;
     const TSOL = 466.499;
     const TWIF = 13548;
-    const WIFdautu = 18031;
+    const WIFdautu = 19459;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
