@@ -127,7 +127,7 @@ const App = () => {
                             {WIFdautu} WIF về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) - 21920) * 100) / 21920}%
+                                {convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) - 22920) * 100) / 21920}%
                             </strong>
                         </p>
                     </li>
