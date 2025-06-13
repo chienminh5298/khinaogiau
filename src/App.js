@@ -88,7 +88,7 @@ const App = () => {
     const QSOL = 12;
     const TSOL = 466.499;
     const TWIF = 14976;
-    const WIFdautu = 18031;
+    const WIFdautu = 19249;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
@@ -124,7 +124,7 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            {WIFdautu} WIF về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) - 21920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu)}</strong>
+                            {WIFdautu} WIF về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu)}</strong>
                             {" tương đương "}
                             <strong>
                                 {convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) - 21920) * 100) / 21920}%
