@@ -86,9 +86,9 @@ const App = () => {
     }, []);
 
     const QSOL = 12;
-    const TSOL = 454.499;
-    const TWIF = 17129;
-    const WIFdautu = 19249;
+    const TSOL = 444.499;
+    const TWIF = 19051;
+    const WIFdautu = 19786;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
