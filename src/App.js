@@ -85,7 +85,7 @@ const App = () => {
         };
     }, []);
 
-    const QSOL = 0;
+    const QSOL = 176.807;
     const TSOL = 444.499;
     const TWIF = 19051;
     const WIFdautu = 19786;
