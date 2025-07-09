@@ -46,7 +46,7 @@ const App = () => {
     });
 
     useEffect(() => {
-        const symbol = ["SOL", "XRP", "WIF", "FLOKI"];
+        const symbol = ["SOL", "XRP", "WIF", "FLOK"];
         const stable = "USDT";
         const socketPrice = [];
         // Price socket
