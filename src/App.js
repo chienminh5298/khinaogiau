@@ -92,8 +92,8 @@ const App = () => {
     const QSOL = 176.807;
     const TSOL = 444.499;
     const TWIF = 19051;
-    const WIFdautu = 7863;
-    const FLOKIdautu = 109398404;
+    const WIFdautu = 14192;
+    const FLOKIdautu = 44036;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
