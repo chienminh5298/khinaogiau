@@ -46,43 +46,46 @@ const App = () => {
     });
 
     useEffect(() => {
-        const symbol = ["SOL", "FLOKI", "WIF"];
+        const symbols = ["SOL", "WIF", "FLOKI"];
         const stable = "USDT";
-        const socketPrice = [];
-        // Price socket
-        symbol.forEach((s) => {
-            let webSocketString = "wss://stream.binance.com/stream?streams=";
-            webSocketString += `${s.toLocaleLowerCase() + stable.toLocaleLowerCase()}@bookTicker/`;
-            webSocketString = webSocketString.slice(0, -1);
-            const priceSocket = new WebSocket(webSocketString);
+        const sockets = [];
 
-            let lastUpdateTime = 0; // Store the timestamp of the last update
-            priceSocket.onmessage = (msg) => {
-                const data = JSON.parse(msg.data).data.b;
+        symbols.forEach((s) => {
+            const wsUrl = `wss://stream.binance.us:9443/ws/${s.toLowerCase()}${stable.toLowerCase()}@bookTicker`;
+            const socket = new WebSocket(wsUrl);
+
+            let lastUpdate = 0;
+            socket.onmessage = (msg) => {
+                const parsed = JSON.parse(msg.data);
+                const price = parseFloat(parsed.b); // bid price
                 const now = Date.now();
-                console.log(data)
-                // Update the state only if 3 seconds have passed
-                if (now - lastUpdateTime >= 3000) {
-                    setCurrentPrice((prevState) => ({
-                        ...prevState,
-                        [s]: data,
+
+                if (now - lastUpdate > 3000) {
+                    setCurrentPrice((prev) => ({
+                        ...prev,
+                        [s]: price,
                     }));
-                    lastUpdateTime = now;
+                    lastUpdate = now;
                 }
             };
-            socketPrice.push(priceSocket);
 
-            // Candlestick price
-            getOpenPrice(s).then((price) => {
-                setOpenPrice((prevState) => ({
-                    ...prevState,
-                    [s]: price,
+            socket.onerror = (err) => {
+                console.error(`${s} WebSocket error`, err);
+            };
+
+            sockets.push(socket);
+
+            // Fetch open price
+            getOpenPrice(s).then((open) => {
+                setOpenPrice((prev) => ({
+                    ...prev,
+                    [s]: open,
                 }));
             });
         });
 
         return () => {
-            socketPrice.forEach((soc) => soc.close());
+            sockets.forEach((s) => s.close());
         };
     }, []);
 
