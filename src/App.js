@@ -46,22 +46,21 @@ const App = () => {
     });
 
     useEffect(() => {
-        const symbol = ["SOL", "XRP", "WIF", "FLOK"];
+        const symbol = ["SOL", "FLOKI", "WIF"];
         const stable = "USDT";
         const socketPrice = [];
         // Price socket
         symbol.forEach((s) => {
-            let webSocketString = "wss://fstream.binance.com/stream?streams=";
+            let webSocketString = "wss://stream.binance.com/stream?streams=";
             webSocketString += `${s.toLocaleLowerCase() + stable.toLocaleLowerCase()}@bookTicker/`;
             webSocketString = webSocketString.slice(0, -1);
             const priceSocket = new WebSocket(webSocketString);
-            priceSocket.onopen = () => {};
 
             let lastUpdateTime = 0; // Store the timestamp of the last update
             priceSocket.onmessage = (msg) => {
                 const data = JSON.parse(msg.data).data.b;
                 const now = Date.now();
-
+                console.log(data)
                 // Update the state only if 3 seconds have passed
                 if (now - lastUpdateTime >= 3000) {
                     setCurrentPrice((prevState) => ({
@@ -91,7 +90,7 @@ const App = () => {
     const TSOL = 444.499;
     const TWIF = 19051;
     const WIFdautu = 7863;
-    const FLOKIdautu = 7863;
+    const FLOKIdautu = 109398404;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
@@ -128,7 +127,7 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            {WIFdautu} Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(FLOKIdautu * currentPrice.FLOKI) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOKIdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(FLOKIdautu * currentPrice.FLOKI) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOKIdautu)}</strong>
                             {" tương đương "}
                             <strong>
                                 {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOKIdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(FLOKIdautu * currentPrice.FLOKI) - 22920) * 100) / 22920}%
