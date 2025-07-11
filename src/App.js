@@ -91,7 +91,8 @@ const App = () => {
 
     const QSOL = 176.807;
     const TSOL = 444.499;
-    const TWIF = 19051;
+    const TWIF = 7587;
+    const TPENGU = 478413;
     const WIFdautu = 12289;
     const PENGUdautu = 345155;
     const di3SOL = 105.13;
@@ -126,6 +127,13 @@ const App = () => {
                             Tiêu có {TWIF} WIF tương đương: <strong>{parseInt(TWIF * currentPrice.WIF)}</strong>$ tương đương <strong>{convertToVNDCurrency(TWIF * currentPrice.WIF * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>
