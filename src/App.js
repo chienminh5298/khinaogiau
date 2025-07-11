@@ -148,7 +148,7 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt(TWIF * currentPrice.WIF + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF + PENGUdautu * currentPrice.PENGU)} ~ {convertToVNDCurrency((TWIF * currentPrice.WIF + TSOL * currentPrice.SOL + WIFdautu * currentPrice.WIF + PENGUdautu * currentPrice.PENGU) * vndCurrency)}
+                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
