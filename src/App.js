@@ -129,6 +129,8 @@ const App = () => {
                         </p>
                     </li>
                     <li>
+                        <p>WIFdautu: {WIFdautu}</p>
+                        <p>PENGUdautu: {PENGUdautu}</p>
                         <p>
                             Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu)}</strong>
                             {" tương đương "}
