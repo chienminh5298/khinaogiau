@@ -91,8 +91,8 @@ const App = () => {
 
     const QSOL = 176.807;
     const TSOL = 444.499;
-    const TWIF = 7587;
-    const TPENGU = 478413;
+    const TWIF = 6511;
+    const TPENGU = 524242;
     const WIFdautu = 12289;
     const PENGUdautu = 345155;
     const di3SOL = 105.13;
