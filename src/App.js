@@ -93,8 +93,8 @@ const App = () => {
     const TSOL = 444.499;
     const TWIF = 6511;
     const TPENGU = 524242;
-    const WIFdautu = 12289;
-    const PENGUdautu = 345155;
+    const WIFdautu = 10289;
+    const PENGUdautu = 417291;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const vndCurrency = 24500;
