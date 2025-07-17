@@ -33,20 +33,20 @@ const getOpenPrice = async (symbol) => {
 
 const App = () => {
     const [currentPrice, setCurrentPrice] = useState({
-        XRP: 0,
+        FLO: 0,
         SOL: 0,
         WIF: 0,
         PENGU: 0,
     });
     const [openPrice, setOpenPrice] = useState({
-        XRP: 0,
+        FLO: 0,
         SOL: 0,
         WIF: 0,
         PENGU: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "WIF", "PENGU"];
+        const symbols = ["SOL", "WIF", "PENGU", "FLOKI"];
         const stable = "USDT";
         const sockets = [];
 
@@ -93,7 +93,8 @@ const App = () => {
     const TSOL = 444.499;
     const TWIF = 6511;
     const TPENGU = 524242;
-    const WIFdautu = 10289;
+    const WIFdautu = 5289;
+    const FLOdautu = 40341;
     const PENGUdautu = 417291;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
@@ -139,16 +140,17 @@ const App = () => {
                     <li>
                         <p>WIFdautu: {WIFdautu}</p>
                         <p>PENGUdautu: {PENGUdautu}</p>
+                        <p>FLOdautu: {FLOdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLO) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * FLOdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) - 22920) * 100) / 22920}%
+                                {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu + (currentPrice.FLO - openPrice.FLO) * FLOdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLO) - 22920) * 100) / 22920}%
                             </strong>
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU) * vndCurrency)}
+                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLO) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
