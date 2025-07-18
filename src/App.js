@@ -33,20 +33,22 @@ const getOpenPrice = async (symbol) => {
 
 const App = () => {
     const [currentPrice, setCurrentPrice] = useState({
-        XRP: 0,
+        FLOKI: 0,
         SOL: 0,
         WIF: 0,
         PENGU: 0,
+        BONK: 0,
     });
     const [openPrice, setOpenPrice] = useState({
-        XRP: 0,
+        FLOKI: 0,
         SOL: 0,
         WIF: 0,
         PENGU: 0,
+        BONK: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "WIF", "PENGU"];
+        const symbols = ["SOL", "WIF", "PENGU", "FLOKI", "BONK"];
         const stable = "USDT";
         const sockets = [];
 
@@ -89,81 +91,104 @@ const App = () => {
         };
     }, []);
 
-    const QSOL = 176.807;
-    const TSOL = 444.499;
-    const TWIF = 5511;
-    const TPENGU = 559164;
-    const WIFdautu = 10289;
-    const PENGUdautu = 417291;
     const di3SOL = 105.13;
     const chauSOL = 125.04;
+    const QSOL = 176.807;
+    const TSOL = 444.499;
+    const TWIF = 2511;
+    const TPENGU = 559164;
+    const TBONK = 90213371;
+
+    const WIFdautu = 2289;
+    const BONKdautu = 89406779;
+    const FLOdautu = 40382135;
+    const PENGUdautu = 417291;
+
     const vndCurrency = 24500;
+
+    const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
+    const FLOKIchange = currentPrice.FLOKI - openPrice.FLOKI;
+    const BONKchange = currentPrice.BONK - openPrice.BONK;
+    const WIFchange = currentPrice.WIF - openPrice.WIF;
+    const SOLchange = currentPrice.SOL - openPrice.SOL;
+
     return (
         <div className="container">
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
                 <p>WIF: {currentPrice.WIF}</p>
                 <p>PENGU: {currentPrice.PENGU}</p>
+                <p>FLOKI: {currentPrice.FLOKI}</p>
+                <p>BONK: {currentPrice.BONK}</p>
                 <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                 <ul>
                     <li>---------------------------------------------------------------</li>
                     <li>
                         <p>
-                            Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice.SOL)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * QSOL)}</strong>
+                            Quâỵ có {QSOL} SOL tương đương: <strong>{parseInt(QSOL * currentPrice.SOL)}</strong>$ `tương đương <strong>{convertToVNDCurrency(QSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(SOLchange * QSOL)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * QSOL * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(SOLchange * QSOL * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
                         <p>
-                            Tiêu có {TSOL} SOL tương đương: <strong>{parseInt(TSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(TSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * TSOL)}</strong>
+                            Tiêu có {TSOL} SOL tương đương: <strong>{parseInt(TSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(TSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(SOLchange * TSOL)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * TSOL * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(SOLchange * TSOL * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TWIF} WIF tương đương: <strong>{parseInt(TWIF * currentPrice.WIF)}</strong>$ tương đương <strong>{convertToVNDCurrency(TWIF * currentPrice.WIF * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF)}</strong>
+                            Tiêu có {TWIF} WIF tương đương: <strong>{parseInt(TWIF * currentPrice.WIF)}</strong>$ tương đương <strong>{convertToVNDCurrency(TWIF * currentPrice.WIF * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(WIFchange * TWIF)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.WIF - openPrice.WIF) * TWIF * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(WIFchange * TWIF * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU)}</strong>
+                            Tiêu có {TBONK} BONK tương đương: <strong>{parseInt(TBONK * currentPrice.BONK)}</strong>$ tương đương <strong>{convertToVNDCurrency(TBONK * currentPrice.BONK * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(BONKchange * TBONK)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(BONKchange * TBONK * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * TPENGU)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency(PENGUchange * TPENGU * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>
                         <p>WIFdautu: {WIFdautu}</p>
                         <p>PENGUdautu: {PENGUdautu}</p>
+                        <p>FLOdautu: {FLOdautu}</p>
+                        <p>BONKdautu: {BONKdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency(WIFchange * WIFdautu + PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) - 22920) * 100) / 22920}%
+                                {convertToVNDCurrency((WIFchange * WIFdautu + PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920) * 100) / 22920}%
                             </strong>
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU) * vndCurrency)}
+                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
                         <p>
-                            Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * di3SOL)}</strong>
+                            Dì 3 có {di3SOL} SOL tương đương: <strong>{parseInt(di3SOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(di3SOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(SOLchange * di3SOL)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * di3SOL * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(SOLchange * di3SOL * vndCurrency)}</strong>
                         </p>
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
                         <p>
-                            Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL)}</strong>
+                            Châu có {chauSOL} SOL tương đương: <strong>{parseInt(chauSOL * currentPrice.SOL)}</strong>$ tương đương <strong>{convertToVNDCurrency(chauSOL * currentPrice.SOL * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(SOLchange * chauSOL)}</strong>
                             {" tương đương "}
-                            <strong>{convertToVNDCurrency((currentPrice.SOL - openPrice.SOL) * chauSOL * vndCurrency)}</strong>
+                            <strong>{convertToVNDCurrency(SOLchange * chauSOL * vndCurrency)}</strong>
                         </p>
                     </li>
                 </ul>
