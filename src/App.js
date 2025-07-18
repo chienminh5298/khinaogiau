@@ -104,7 +104,7 @@ const App = () => {
     const FLOdautu = 40382135;
     const PENGUdautu = 417291;
 
-    const vndCurrency = 24500;
+    const vndCurrency = 26000;
 
     const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
     const FLOKIchange = currentPrice.FLOKI - openPrice.FLOKI;
@@ -173,7 +173,7 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI) * vndCurrency)}
+                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
