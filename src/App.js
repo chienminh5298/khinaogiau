@@ -95,9 +95,9 @@ const App = () => {
     const chauSOL = 125.04;
     const QSOL = 176.807;
     const TSOL = 444.499;
-    const TWIF = 2511;
+    const TWIF = 0;
     const TPENGU = 559164;
-    const TBONK = 90213371;
+    const TBONK = 167220216;
 
     const WIFdautu = 2289;
     const BONKdautu = 89406779;
