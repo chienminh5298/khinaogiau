@@ -37,16 +37,18 @@ const App = () => {
         SOL: 0,
         WIF: 0,
         PENGU: 0,
+        BONK: 0,
     });
     const [openPrice, setOpenPrice] = useState({
         FLOKI: 0,
         SOL: 0,
         WIF: 0,
         PENGU: 0,
+        BONK: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "WIF", "PENGU", "FLOKI"];
+        const symbols = ["SOL", "WIF", "PENGU", "FLOKI", "BONK"];
         const stable = "USDT";
         const sockets = [];
 
@@ -91,9 +93,11 @@ const App = () => {
 
     const QSOL = 176.807;
     const TSOL = 444.499;
-    const TWIF = 5511;
+    const TWIF = 2511;
     const TPENGU = 559164;
-    const WIFdautu = 5289;
+    const TBONK = 90213371;
+    const WIFdautu = 2289;
+    const BONKdautu = 89406779;
     const FLOdautu = 40382135;
     const PENGUdautu = 417291;
     const di3SOL = 105.13;
@@ -133,6 +137,13 @@ const App = () => {
                     </li>
                     <li>
                         <p>
+                            Tiêu có {TBONK} BONK tương đương: <strong>{parseInt(TBONK * currentPrice.BONK)}</strong>$ tương đương <strong>{convertToVNDCurrency(TBONK * currentPrice.BONK * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.BONK - openPrice.BONK) * TBONK)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency((currentPrice.BONK - openPrice.BONK) * TBONK * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
                             Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency((currentPrice.PENGU - openPrice.PENGU) * TPENGU * vndCurrency)}</strong>
@@ -142,11 +153,12 @@ const App = () => {
                         <p>WIFdautu: {WIFdautu}</p>
                         <p>PENGUdautu: {PENGUdautu}</p>
                         <p>FLOdautu: {FLOdautu}</p>
+                        <p>BONKdautu: {BONKdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * FLOdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOdautu + (currentPrice.BONK - openPrice.BONK) * BONKdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) - 22920) * 100) / 22920}%
+                                {convertToVNDCurrency(((currentPrice.WIF - openPrice.WIF) * WIFdautu + (currentPrice.PENGU - openPrice.PENGU) * PENGUdautu + (currentPrice.FLOKI - openPrice.FLOKI) * FLOdautu + (currentPrice.BONK - openPrice.BONK) * BONKdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920) * 100) / 22920}%
                             </strong>
                         </p>
                     </li>
