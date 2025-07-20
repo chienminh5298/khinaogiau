@@ -160,6 +160,9 @@ const App = () => {
                         </p>
                     </li>
                     <li>
+                        <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) / currentPrice.SOL + TSOL}</p>
+                    </li>
+                    <li>
                         <p>WIFdautu: {WIFdautu}</p>
                         <p>PENGUdautu: {PENGUdautu}</p>
                         <p>FLOdautu: {FLOdautu}</p>
