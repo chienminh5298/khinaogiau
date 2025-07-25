@@ -99,10 +99,10 @@ const App = () => {
     const TPENGU = 559164;
     const TBONK = 167220216;
 
-    const WIFdautu = 2289;
+    const WIFdautu = 0;
     const BONKdautu = 89406779;
     const FLOdautu = 40382135;
-    const PENGUdautu = 417291;
+    const PENGUdautu = 481112;
 
     const vndCurrency = 26000;
 
