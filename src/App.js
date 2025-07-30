@@ -35,20 +35,18 @@ const App = () => {
     const [currentPrice, setCurrentPrice] = useState({
         FLOKI: 0,
         SOL: 0,
-        WIF: 0,
         PENGU: 0,
         BONK: 0,
     });
     const [openPrice, setOpenPrice] = useState({
         FLOKI: 0,
         SOL: 0,
-        WIF: 0,
         PENGU: 0,
         BONK: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "WIF", "PENGU", "FLOKI", "BONK"];
+        const symbols = ["SOL", "PENGU", "BONK", "FLOKI"];
         const stable = "USDT";
         const sockets = [];
 
@@ -95,28 +93,24 @@ const App = () => {
     const chauSOL = 125.04;
     const QSOL = 176.807;
     const TSOL = 444.499;
-    const TWIF = 0;
     const TPENGU = 559164;
     const TBONK = 167220216;
 
-    const WIFdautu = 0;
     const BONKdautu = 89406779;
     const FLOdautu = 40382135;
-    const PENGUdautu = 481112;
+    const PENGUdautu = 512547;
 
     const vndCurrency = 26000;
 
     const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
     const FLOKIchange = currentPrice.FLOKI - openPrice.FLOKI;
     const BONKchange = currentPrice.BONK - openPrice.BONK;
-    const WIFchange = currentPrice.WIF - openPrice.WIF;
     const SOLchange = currentPrice.SOL - openPrice.SOL;
 
     return (
         <div className="container">
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
-                <p>WIF: {currentPrice.WIF}</p>
                 <p>PENGU: {currentPrice.PENGU}</p>
                 <p>FLOKI: {currentPrice.FLOKI}</p>
                 <p>BONK: {currentPrice.BONK}</p>
@@ -140,13 +134,6 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TWIF} WIF tương đương: <strong>{parseInt(TWIF * currentPrice.WIF)}</strong>$ tương đương <strong>{convertToVNDCurrency(TWIF * currentPrice.WIF * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(WIFchange * TWIF)}</strong>
-                            {" tương đương "}
-                            <strong>{convertToVNDCurrency(WIFchange * TWIF * vndCurrency)}</strong>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
                             Tiêu có {TBONK} BONK tương đương: <strong>{parseInt(TBONK * currentPrice.BONK)}</strong>$ tương đương <strong>{convertToVNDCurrency(TBONK * currentPrice.BONK * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(BONKchange * TBONK)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency(BONKchange * TBONK * vndCurrency)}</strong>
@@ -163,20 +150,19 @@ const App = () => {
                         <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) / currentPrice.SOL + TSOL}</p>
                     </li>
                     <li>
-                        <p>WIFdautu: {WIFdautu}</p>
                         <p>PENGUdautu: {PENGUdautu}</p>
                         <p>FLOdautu: {FLOdautu}</p>
                         <p>BONKdautu: {BONKdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920}</strong>, hôm nay <strong>{convertToUSDCurrency(WIFchange * WIFdautu + PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency((WIFchange * WIFdautu + PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(WIFdautu * currentPrice.WIF) + parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 22920) * 100) / 22920}%
+                                {convertToVNDCurrency((PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097) * 100) / 24097}%
                             </strong>
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency(((TWIF + WIFdautu) * currentPrice.WIF + TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
+                        Tổng {parseInt(TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
