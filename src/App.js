@@ -96,7 +96,7 @@ const App = () => {
     const TPENGU = 559164;
     const TBONK = 167220216;
 
-    const BONKdautu = 128865493;
+    const BONKdautu = 89406779;
     const FLOdautu = 40382135;
     const PENGUdautu = 512547;
 
@@ -154,10 +154,10 @@ const App = () => {
                         <p>FLOdautu: {FLOdautu}</p>
                         <p>BONKdautu: {BONKdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 25097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency((PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 25097) * 100) / 25097}%
+                                {convertToVNDCurrency((PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097) * 100) / 24097}%
                             </strong>
                         </p>
                     </li>
