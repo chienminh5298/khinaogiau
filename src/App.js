@@ -92,7 +92,7 @@ const App = () => {
     const di3SOL = 105.13;
     const chauSOL = 125.04;
     const QSOL = 176.807;
-    const TSOL = 444.499;
+    const TSOL = 421.909;
     const TPENGU = 559164;
     const TBONK = 321571799;
 
