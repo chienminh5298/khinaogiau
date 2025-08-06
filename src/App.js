@@ -94,7 +94,7 @@ const App = () => {
     const QSOL = 176.807;
     const TSOL = 444.499;
     const TPENGU = 559164;
-    const TBONK = 167220216;
+    const TBONK = 321571799;
 
     const BONKdautu = 89406779;
     const FLOdautu = 40382135;
