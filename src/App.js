@@ -91,10 +91,10 @@ const App = () => {
 
     const di3SOL = 105.13;
     const chauSOL = 125.04;
-    const QSOL = 176.807;
-    const TSOL = 421.909;
+    const QSOL = 155.972;
+    const TSOL = 400;
     const TPENGU = 559164;
-    const TBONK = 321571799;
+    const TBONK = 486664812;
 
     const BONKdautu = 89406779;
     const FLOdautu = 40382135;
