@@ -33,20 +33,18 @@ const getOpenPrice = async (symbol) => {
 
 const App = () => {
     const [currentPrice, setCurrentPrice] = useState({
-        FLOKI: 0,
         SOL: 0,
         PENGU: 0,
         BONK: 0,
     });
     const [openPrice, setOpenPrice] = useState({
-        FLOKI: 0,
         SOL: 0,
         PENGU: 0,
         BONK: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "PENGU", "BONK", "FLOKI"];
+        const symbols = ["SOL", "PENGU", "BONK"];
         const stable = "USDT";
         const sockets = [];
 
@@ -96,14 +94,12 @@ const App = () => {
     const TPENGU = 559164;
     const TBONK = 486664812;
 
-    const BONKdautu = 89406779;
-    const FLOdautu = 40382135;
+    const BONKdautu = 205419850;
     const PENGUdautu = 512547;
 
     const vndCurrency = 26000;
 
     const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
-    const FLOKIchange = currentPrice.FLOKI - openPrice.FLOKI;
     const BONKchange = currentPrice.BONK - openPrice.BONK;
     const SOLchange = currentPrice.SOL - openPrice.SOL;
 
@@ -112,7 +108,6 @@ const App = () => {
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
                 <p>PENGU: {currentPrice.PENGU}</p>
-                <p>FLOKI: {currentPrice.FLOKI}</p>
                 <p>BONK: {currentPrice.BONK}</p>
                 <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                 <ul>
@@ -151,18 +146,17 @@ const App = () => {
                     </li>
                     <li>
                         <p>PENGUdautu: {PENGUdautu}</p>
-                        <p>FLOdautu: {FLOdautu}</p>
                         <p>BONKdautu: {BONKdautu}</p>
                         <p>
-                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu)}</strong>
+                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(BONKdautu * currentPrice.BONK) - 24097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + BONKchange * BONKdautu)}</strong>
                             {" tương đương "}
                             <strong>
-                                {convertToVNDCurrency((PENGUchange * PENGUdautu + FLOKIchange * FLOdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(FLOdautu * currentPrice.FLOKI) + parseInt(BONKdautu * currentPrice.BONK) - 24097) * 100) / 24097}%
+                                {convertToVNDCurrency((PENGUchange * PENGUdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(BONKdautu * currentPrice.BONK) - 24097) * 100) / 24097}%
                             </strong>
                         </p>
                     </li>
                     <li>
-                        Tổng {parseInt(TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + FLOdautu * currentPrice.FLOKI + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
+                        Tổng {parseInt(TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
