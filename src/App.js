@@ -136,7 +136,7 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * TPENGU)}</strong>
+                            Tiêu có {TPENGU} (còn 2k$ pengu trên binance.us) PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * TPENGU)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency(PENGUchange * TPENGU * vndCurrency)}</strong>
                         </p>
