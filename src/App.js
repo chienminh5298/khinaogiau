@@ -90,9 +90,9 @@ const App = () => {
     const di3SOL = 105.13;
     const chauSOL = 136.199;
     const QSOL = 0;
-    const TSOL = 340;
-    const TPENGU = 886072;
-    const TBONK = 1043573636;
+    const TSOL = 300;
+    const TPENGU = 1245645;
+    const TBONK = 1092022785;
 
     const BONKdautu = 205419850;
     const PENGUdautu = 512547;
