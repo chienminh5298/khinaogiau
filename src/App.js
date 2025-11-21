@@ -88,7 +88,7 @@ const App = () => {
     }, []);
 
     const di3SOL = 105.13;
-    const chauSOL = 136.199;
+    const chauSOL = 158.488;
     const QSOL = 0;
     const TSOL = 300;
     const TPENGU = 1245645;
