@@ -91,11 +91,8 @@ const App = () => {
     const chauSOL = 207.108;
     const QSOL = 0;
     const TSOL = 330.26;
-    const TPENGU = 1245645;
-    const TBONK = 1092022785;
-
-    const BONKdautu = 205419850;
-    const PENGUdautu = 512547;
+    const TPENGU = 2371836;
+    const TBONK = 426942635;
 
     const vndCurrency = 26000;
 
@@ -136,7 +133,7 @@ const App = () => {
                     </li>
                     <li>
                         <p>
-                            Tiêu có {TPENGU} (còn 2k$ pengu trên binance.us) PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * TPENGU)}</strong>
+                            Tiêu có {TPENGU} PENGU tương đương: <strong>{parseInt(TPENGU * currentPrice.PENGU)}</strong>$ tương đương <strong>{convertToVNDCurrency(TPENGU * currentPrice.PENGU * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * TPENGU)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency(PENGUchange * TPENGU * vndCurrency)}</strong>
                         </p>
@@ -145,18 +142,7 @@ const App = () => {
                         <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) / currentPrice.SOL + TSOL}</p>
                     </li>
                     <li>
-                        <p>PENGUdautu: {PENGUdautu}</p>
-                        <p>BONKdautu: {BONKdautu}</p>
-                        <p>
-                            Tiền về việt nam: <strong>{parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(BONKdautu * currentPrice.BONK) - 24097}</strong>, hôm nay <strong>{convertToUSDCurrency(PENGUchange * PENGUdautu + BONKchange * BONKdautu)}</strong>
-                            {" tương đương "}
-                            <strong>
-                                {convertToVNDCurrency((PENGUchange * PENGUdautu + BONKchange * BONKdautu) * vndCurrency)} ~ {((parseInt(PENGUdautu * currentPrice.PENGU) + parseInt(BONKdautu * currentPrice.BONK) - 24097) * 100) / 24097}%
-                            </strong>
-                        </p>
-                    </li>
-                    <li>
-                        Tổng {parseInt(TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + (BONKdautu + TBONK) * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + (PENGUdautu + TPENGU) * currentPrice.PENGU + (BONKdautu + TBONK) * currentPrice.BONK) * vndCurrency)}
+                        Tổng {parseInt(TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
