@@ -36,15 +36,17 @@ const App = () => {
         SOL: 0,
         PENGU: 0,
         BONK: 0,
+        HYPE: 0,
     });
     const [openPrice, setOpenPrice] = useState({
         SOL: 0,
         PENGU: 0,
         BONK: 0,
+        HYPE: 0,
     });
 
     useEffect(() => {
-        const symbols = ["SOL", "PENGU", "BONK"];
+        const symbols = ["SOL", "PENGU", "BONK", "HYPE"];
         const stable = "USDT";
         const sockets = [];
 
@@ -90,15 +92,17 @@ const App = () => {
     const di3SOL = 105.13;
     const chauSOL = 207.108;
     const QSOL = 0;
-    const TSOL = 330.26;
+    const TSOL = 270.26;
     const TPENGU = 2371836;
     const TBONK = 426942635;
+    const THYPE = 66;
 
     const vndCurrency = 26000;
 
     const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
     const BONKchange = currentPrice.BONK - openPrice.BONK;
     const SOLchange = currentPrice.SOL - openPrice.SOL;
+    const HYPEchange = currentPrice.HYPE - openPrice.HYPE;
 
     return (
         <div className="container">
@@ -126,6 +130,13 @@ const App = () => {
                     </li>
                     <li>
                         <p>
+                            Tiêu có {THYPE} HYPE tương đương: <strong>{parseInt(THYPE * currentPrice.HYPE)}</strong>$ tương đương <strong>{convertToVNDCurrency(THYPE * currentPrice.HYPE * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(HYPEchange * THYPE)}</strong>
+                            {" tương đương "}
+                            <strong>{convertToVNDCurrency(HYPEchange * THYPE * vndCurrency)}</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
                             Tiêu có {TBONK} BONK tương đương: <strong>{parseInt(TBONK * currentPrice.BONK)}</strong>$ tương đương <strong>{convertToVNDCurrency(TBONK * currentPrice.BONK * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(BONKchange * TBONK)}</strong>
                             {" tương đương "}
                             <strong>{convertToVNDCurrency(BONKchange * TBONK * vndCurrency)}</strong>
@@ -139,10 +150,10 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) / currentPrice.SOL + TSOL}</p>
+                        <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE) / currentPrice.SOL + TSOL}</p>
                     </li>
                     <li>
-                        Tổng {parseInt(TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK) * vndCurrency)}
+                        Tổng {parseInt(TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
