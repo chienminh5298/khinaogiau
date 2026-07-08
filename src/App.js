@@ -94,13 +94,11 @@ const App = () => {
     const QSOL = 0;
     const TSOL = 270.26;
     const TPENGU = 2371836;
-    const TBONK = 426942635;
     const THYPE = 66;
 
     const vndCurrency = 26000;
 
     const PENGUchange = currentPrice.PENGU - openPrice.PENGU;
-    const BONKchange = currentPrice.BONK - openPrice.BONK;
     const SOLchange = currentPrice.SOL - openPrice.SOL;
     const HYPEchange = currentPrice.HYPE - openPrice.HYPE;
 
@@ -109,7 +107,7 @@ const App = () => {
             <div>
                 <p>SOL: {currentPrice.SOL}</p>
                 <p>PENGU: {currentPrice.PENGU}</p>
-                <p>BONK: {currentPrice.BONK}</p>
+                <p>HYPE: {currentPrice.HYPE}</p>
                 <p>Giá $: {convertToVNDCurrency(vndCurrency)}</p>
                 <ul>
                     <li>---------------------------------------------------------------</li>
@@ -136,11 +134,6 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        <p>
-                            Tiêu có {TBONK} BONK tương đương: <strong>{parseInt(TBONK * currentPrice.BONK)}</strong>$ tương đương <strong>{convertToVNDCurrency(TBONK * currentPrice.BONK * vndCurrency)}</strong>, hôm nay <strong>{convertToUSDCurrency(BONKchange * TBONK)}</strong>
-                            {" tương đương "}
-                            <strong>{convertToVNDCurrency(BONKchange * TBONK * vndCurrency)}</strong>
-                        </p>
                     </li>
                     <li>
                         <p>
@@ -150,10 +143,10 @@ const App = () => {
                         </p>
                     </li>
                     <li>
-                        <p>Quy ra sol {(TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE) / currentPrice.SOL + TSOL}</p>
+                        <p>Quy ra sol {(TPENGU * currentPrice.PENGU + THYPE * currentPrice.HYPE) / currentPrice.SOL + TSOL}</p>
                     </li>
                     <li>
-                        Tổng {parseInt(TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + TBONK * currentPrice.BONK + THYPE * currentPrice.HYPE) * vndCurrency)}
+                        Tổng {parseInt(TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + THYPE * currentPrice.HYPE)} ~ {convertToVNDCurrency((TSOL * currentPrice.SOL + TPENGU * currentPrice.PENGU + THYPE * currentPrice.HYPE) * vndCurrency)}
                     </li>
                     <li>---------------------------------------------------------------</li>
                     <li>
