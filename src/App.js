@@ -93,8 +93,8 @@ const App = () => {
     const chauSOL = 207.108;
     const QSOL = 0;
     const TSOL = 270.26;
-    const TPENGU = 2644649;
-    const THYPE = 66;
+    const TPENGU = 1268608;
+    const THYPE = 217.073;
 
     const vndCurrency = 26000;
 
