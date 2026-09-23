@@ -92,9 +92,9 @@ const App = () => {
     const di3SOL = 105.13;
     const chauSOL = 207.108;
     const QSOL = 0;
-    const TSOL = 270.26;
+    const TSOL = 150.599;
     const TPENGU = 1268608;
-    const THYPE = 217.073;
+    const THYPE = 419.171;
 
     const vndCurrency = 26000;
 
